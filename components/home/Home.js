@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '../Header'
 import Navigation from '../Navigation'
-import {View,Text,StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Dimensions } from 'react-native';
+import MapView from 'react-native-maps';
 
 export default function Home() {
   return (
@@ -24,14 +25,14 @@ export default function Home() {
         <View style={styles.clientInfoContainer}>
           <View style={styles.dataItemRow}>
             <Text style={styles.fields}>Cliente: </Text>
-            <Text style={styles.data}> Pepe Gonzales </Text>
+            <Text style={styles.data}> Pepe Gonzales (45213) </Text>
           </View>
           <View style={styles.dataItemRow}>
             <Text style={styles.fields}>Teléfono: </Text>
             <Text style={styles.data}>011 2345-2145 </Text>
           </View>
           <View style={styles.dataItemRow}>
-            <Text style={styles.fields}>Observacion: </Text>
+            <Text style={styles.fields}>Observación: </Text>
           </View>
           <View style={styles.dataItemRow}>
             <Text style={styles.data}>120 chars: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis. </Text>
@@ -39,6 +40,8 @@ export default function Home() {
           
         </View>
       </View>
+
+      <MapView style={styles.mapStyles} />
 
       <Navigation/>
     </View>
@@ -57,6 +60,7 @@ const styles = StyleSheet.create({
     elevation: 2,
     borderLeftColor:'#27AE60',
     borderLeftWidth:3,
+    backgroundColor:'white',
   },
   topbarWorkOrderNumbers: {
     flexDirection: 'row',
@@ -93,5 +97,11 @@ const styles = StyleSheet.create({
   clientInfoContainer:{
     paddingTop:10,
     padding:20
+  },
+  mapStyles: {
+    width: Dimensions.get('window').width,
+    height: 265,
+    marginTop:10,
+    borderTopWidth:2,
   }
 })

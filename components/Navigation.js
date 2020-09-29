@@ -37,14 +37,14 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#e1e2e3',
+    backgroundColor: 'white',
     padding: 10
   },
   buttonsPanel:{
     flex:1,
     flexDirection:'row',
     justifyContent:'space-between',
-    borderTopColor:'black',
-    borderTopWidth:1,
+    borderTopColor:'#27AE60',
+    borderTopWidth:2,
   }
 })
