@@ -7,7 +7,9 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <Header title="Orden de Trabajo"/>
-      <View style={styles.topbarWorkOrder}>
+
+      {/* Extract to a component: topWorkOrder */}
+      <View style={styles.containerCardWorkOrder}>
         <View style={styles.topbarWorkOrderNumbers}>
           <Text style={styles.workOrderNumber}>Nro Orden: 154</Text>
           <Text style={styles.workOrderQuantity}>1/15</Text>
@@ -15,9 +17,28 @@ export default function Home() {
         <View style={styles.workOrderTypeContainer}>
           <Text style={styles.workOrderType}>Reconexión Cable</Text>
         </View>
-
       </View>
         
+      {/* Extract to a component: mainWorkOrder */}
+      <View style={styles.containerCardWorkOrder}>
+        <View style={styles.clientInfoContainer}>
+          <View style={styles.dataItemRow}>
+            <Text style={styles.fields}>Cliente: </Text>
+            <Text style={styles.data}> Pepe Gonzales </Text>
+          </View>
+          <View style={styles.dataItemRow}>
+            <Text style={styles.fields}>Teléfono: </Text>
+            <Text style={styles.data}>011 2345-2145 </Text>
+          </View>
+          <View style={styles.dataItemRow}>
+            <Text style={styles.fields}>Observacion: </Text>
+          </View>
+          <View style={styles.dataItemRow}>
+            <Text style={styles.data}>120 chars: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis. </Text>
+          </View>
+          
+        </View>
+      </View>
 
       <Navigation/>
     </View>
@@ -29,9 +50,10 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor:'#ecf0f1'
   },
-  topbarWorkOrder:{
+  containerCardWorkOrder:{
     margin:8,
     marginTop:15,
+    marginBottom:0,
     elevation: 2,
     borderLeftColor:'#27AE60',
     borderLeftWidth:3,
@@ -48,10 +70,28 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
   },
   workOrderTypeContainer: {
-    paddingTop:10,
-    padding: 20
+    paddingTop:0,
+    padding: 20,
   },
   workOrderType: {
-    fontSize:24
+    fontSize:24,
+  },
+  dataItemRow: {
+    flexDirection:'row',
+    marginBottom:5,
+    marginTop:5,
+  },
+  fields: {
+    fontSize:20,
+    fontWeight:'bold',
+  },
+  data: {
+    fontSize:20,
+    flex: 1, 
+    flexWrap: 'wrap'
+  },
+  clientInfoContainer:{
+    paddingTop:10,
+    padding:20
   }
 })
