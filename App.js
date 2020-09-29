@@ -5,15 +5,6 @@ import Home from './components/home/Home'
 
 export default function App() {
   return (
-    <Home />
+    <Home></Home>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
