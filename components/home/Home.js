@@ -1,10 +1,10 @@
 import React from 'react'
 import Header from '../Header'
 import Navigation from '../Navigation'
-import {View, Text, StyleSheet, Dimensions } from 'react-native';
+import {View, Text, StyleSheet, Dimensions, Button } from 'react-native';
 import MapView from 'react-native-maps';
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Header title="Orden de Trabajo"/>
@@ -37,7 +37,10 @@ export default function Home() {
           <View style={styles.dataItemRow}>
             <Text style={styles.data}>120 chars: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis. </Text>
           </View>
-          
+          <Button
+            title="Test"
+            onPress={() =>
+            navigation.navigate('NewWorkOrder', { name: 'Jane' })}/>
         </View>
       </View>
 
