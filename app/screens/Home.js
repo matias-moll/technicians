@@ -1,46 +1,63 @@
 import React from 'react'
 import {View, Text, StyleSheet, Dimensions, Button } from 'react-native';
 import MapView from 'react-native-maps';
+import AppButton from '../components/AppButton';
+import Card from '../components/Card';
+import WorkOrderDetails from '../components/WorkOrderDetails';
+import WorkOrderHeader from '../components/WorkOrderHeader';
+import Routes from '../navigation/Routes';
+
+const workOrder = {
+    headerInfo: {
+      number: 155,
+      quantity: 14,
+      orderType: 'Reconexión Cable'
+    },
+    detailsInfo: {
+      client: 'John Doe',
+      clientNumber: 13452,
+      address: 'Mankato Mississippi 96522',
+      phone: '011 2312-7854',
+      note: 'Lorem 40 sum dolor sit amet consectetur adipisicing elit. Illo ut laudantium nostrum cum aspernatur illum, modi dolore ducimus incidunt explicabo architecto non, ex labore sunt nulla quis velit dolorem perferendis quam quia id, consectetur reiciendis sed molestias! Accusamus, facilis odit!'
+    },
+    operationalTimes:{
+      confirmed: new Date(),
+      arrivedToAddress: null,
+      finished: null
+    }
+}
 
 export default function Home({ navigation }) {
+  const [arrived, setArrived] = React.useState()
+  const [finish, setFinish] = React.useState()
+  
+  const onConfirmPressed = () => {
+    alert("confirmado")
+    setArrived(new Date())
+  }
+  const onArrivedPressed = () => {
+    alert("Llegada a domicilio")
+    setFinish(new Date())
+  }
+  const onFinishPressed = () => {
+    alert("Orden de trabajo finalizada")
+    navigation.navigate(Routes.FINISH_WORK_ORDER)
+  }
+
   return (
     <View style={styles.container}>
+      <WorkOrderHeader headerInfo={workOrder.headerInfo} />
+      <WorkOrderDetails detailsInfo={workOrder.detailsInfo} />
+      <View style={styles.buttonsContainer}>
+        {workOrder.operationalTimes.confirmed && !arrived &&
+        <AppButton customStyles={styles.operationalButton} title='Confirmar' onPress={onConfirmPressed}/>}
+        {arrived && !finish &&
+        <AppButton customStyles={styles.operationalButton} title='Llegada a Domicilio' onPress={onArrivedPressed}/>}
+        {finish && 
+        <AppButton customStyles={styles.operationalButton} title='Finalizar' onPress={onFinishPressed}/>}
 
-      {/* Extract to a component: topWorkOrder */}
-      <View style={styles.containerCardWorkOrder}>
-        <View style={styles.topbarWorkOrderNumbers}>
-          <Text style={styles.workOrderNumber}>Nro Orden: 154</Text>
-          <Text style={styles.workOrderQuantity}>1/15</Text>
-        </View>
-        <View style={styles.workOrderTypeContainer}>
-          <Text style={styles.workOrderType}>Reconexión Cable</Text>
-        </View>
       </View>
-        
-      {/* Extract to a component: mainWorkOrder */}
-      <View style={styles.containerCardWorkOrder}>
-        <View style={styles.clientInfoContainer}>
-          <View style={styles.dataItemRow}>
-            <Text style={styles.fields}>Cliente: </Text>
-            <Text style={styles.data}> Pepe Gonzales (45213) </Text>
-          </View>
-          <View style={styles.dataItemRow}>
-            <Text style={styles.fields}>Teléfono: </Text>
-            <Text style={styles.data}>011 2345-2145 </Text>
-          </View>
-          <View style={styles.dataItemRow}>
-            <Text style={styles.fields}>Observación: </Text>
-          </View>
-          <View style={styles.dataItemRow}>
-            <Text style={styles.data}>120 chars: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque interdum rutrum sodales. Nullam mattis. </Text>
-          </View>
-          <Button
-            title="Test"
-            onPress={() =>
-            navigation.navigate('NewWorkOrder', { name: 'Jane' })}/>
-        </View>
-      </View>
-
+      
     </View>
   )
 }
@@ -50,49 +67,13 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor:'#ecf0f1'
   },
-  containerCardWorkOrder:{
-    margin:8,
-    marginTop:15,
-    marginBottom:0,
-    elevation: 2,
-    borderLeftColor:'#27AE60',
-    borderLeftWidth:3,
-    backgroundColor:'white',
+  buttonsContainer:{
+    flex:1,
+    justifyContent:'flex-end'
   },
-  topbarWorkOrderNumbers: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding:10,
-    paddingLeft:20,
-    paddingRight:20,
-  },
-  workOrderNumber: {
-    fontSize:20,
-    fontWeight:'bold',
-  },
-  workOrderTypeContainer: {
-    paddingTop:0,
-    padding: 20,
-  },
-  workOrderType: {
-    fontSize:24,
-  },
-  dataItemRow: {
-    flexDirection:'row',
-    marginBottom:5,
-    marginTop:5,
-  },
-  fields: {
-    fontSize:20,
-    fontWeight:'bold',
-  },
-  data: {
-    fontSize:20,
-    flex: 1, 
-    flexWrap: 'wrap'
-  },
-  clientInfoContainer:{
-    paddingTop:10,
-    padding:20
-  },
+  operationalButton:{
+    width:300,
+    alignSelf:'center',
+    borderRadius: 0,
+  }
 })

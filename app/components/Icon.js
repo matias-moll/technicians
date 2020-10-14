@@ -7,12 +7,11 @@ export default function Icon({name, size=40, backgroundColor='#000', iconColor='
     <View style={{
       width: size,
       height: size,
-      borderRadius: size/2,
       backgroundColor,
       justifyContent: 'center',
       alignItems: 'center'
     }}>
-      <MaterialCommunityIcons name={name} color={iconColor} size={size/2} />
+      <MaterialCommunityIcons name={name} color={iconColor} size={size * 0.9} />
     </View>
   )
 }

@@ -58,6 +58,9 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight:'900',
     marginBottom:80,
-    textAlign:'center'
+    textAlign:'center',
+    textShadowOffset: {width:2,height:2},
+    textShadowColor: colors.black,
+    textShadowRadius: 2
   }
 })
