@@ -1,10 +1,11 @@
 import React from 'react'
 import {View, Text, StyleSheet, Dimensions, Button } from 'react-native';
-import MapView from 'react-native-maps';
+import { Divider } from 'react-native-elements';
 import AppButton from '../components/AppButton';
 import Card from '../components/Card';
 import WorkOrderDetails from '../components/WorkOrderDetails';
 import WorkOrderHeader from '../components/WorkOrderHeader';
+import colors from '../config/colors';
 import Routes from '../navigation/Routes';
 
 const workOrder = {
@@ -46,8 +47,12 @@ export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <WorkOrderHeader headerInfo={workOrder.headerInfo} />
-      <WorkOrderDetails detailsInfo={workOrder.detailsInfo} />
+      <Card>
+        <WorkOrderHeader headerInfo={workOrder.headerInfo} />
+        <Divider style={{ backgroundColor: colors.medium }} />
+        <WorkOrderDetails detailsInfo={workOrder.detailsInfo} />
+      </Card>
+
       <View style={styles.buttonsContainer}>
         {workOrder.operationalTimes.confirmed && !arrived &&
         <AppButton customStyles={styles.operationalButton} title='Confirmar' onPress={onConfirmPressed}/>}

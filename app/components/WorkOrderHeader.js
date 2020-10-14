@@ -4,7 +4,7 @@ import Card from './Card'
 
 export default function WorkOrderHeader({headerInfo: headerInfo}) {
   return (
-    <Card>
+    <>
       <View style={styles.topbarWorkOrderNumbers}>
         <Text style={styles.workOrderNumber}>Nro Orden: {headerInfo.number}</Text>
         <Text >1/{headerInfo.quantity}</Text>
@@ -12,7 +12,7 @@ export default function WorkOrderHeader({headerInfo: headerInfo}) {
       <View style={styles.workOrderTypeContainer}>
         <Text style={styles.workOrderType}>{headerInfo.orderType}</Text>
       </View>
-  </Card>
+    </>
   )
 }
 
