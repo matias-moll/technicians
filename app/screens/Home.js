@@ -1,13 +1,10 @@
 import React from 'react'
-import Header from '../Header'
-import Navigation from '../Navigation'
 import {View, Text, StyleSheet, Dimensions, Button } from 'react-native';
 import MapView from 'react-native-maps';
 
 export default function Home({ navigation }) {
   return (
     <View style={styles.container}>
-      <Header title="Orden de Trabajo"/>
 
       {/* Extract to a component: topWorkOrder */}
       <View style={styles.containerCardWorkOrder}>
@@ -46,7 +43,6 @@ export default function Home({ navigation }) {
 
       <MapView style={styles.mapStyles} />
 
-      <Navigation/>
     </View>
   )
 }
