@@ -41,8 +41,6 @@ export default function Home({ navigation }) {
         </View>
       </View>
 
-      <MapView style={styles.mapStyles} />
-
     </View>
   )
 }
@@ -97,10 +95,4 @@ const styles = StyleSheet.create({
     paddingTop:10,
     padding:20
   },
-  mapStyles: {
-    width: Dimensions.get('window').width,
-    height: 265,
-    marginTop:10,
-    borderTopWidth:2,
-  }
 })
