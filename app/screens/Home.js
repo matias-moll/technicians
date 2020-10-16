@@ -1,10 +1,11 @@
 import React from 'react'
-import {View, Text, StyleSheet, Dimensions, Button } from 'react-native';
+import {View, Text, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import { Divider } from 'react-native-elements';
 import AppButton from '../components/AppButton';
 import Card from '../components/Card';
 import WorkOrderDetails from '../components/WorkOrderDetails';
 import WorkOrderHeader from '../components/WorkOrderHeader';
+import WorkOrderNote from '../components/WorkOrderNote';
 import colors from '../config/colors';
 import Routes from '../navigation/Routes';
 
@@ -46,13 +47,13 @@ export default function Home({ navigation }) {
   }
 
   return (
-    <View style={styles.container}>
-      <Card>
+    <ScrollView style={styles.container} contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}>
+      <View style={styles.topContainer}> 
         <WorkOrderHeader headerInfo={workOrder.headerInfo} />
-        <Divider style={{ backgroundColor: colors.medium }} />
         <WorkOrderDetails detailsInfo={workOrder.detailsInfo} />
-      </Card>
-
+        <WorkOrderNote note={workOrder.detailsInfo.note} />
+      </View>
+      
       <View style={styles.buttonsContainer}>
         {workOrder.operationalTimes.confirmed && !arrived &&
         <AppButton customStyles={styles.operationalButton} title='Confirmar' onPress={onConfirmPressed}/>}
@@ -60,17 +61,20 @@ export default function Home({ navigation }) {
         <AppButton customStyles={styles.operationalButton} title='Llegada a Domicilio' onPress={onArrivedPressed}/>}
         {finish && 
         <AppButton customStyles={styles.operationalButton} title='Finalizar' onPress={onFinishPressed}/>}
-
       </View>
       
-    </View>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:'#ecf0f1'
+    backgroundColor:'#ecf0f1',
+  },
+  topContainer:{
+    flex:1,
+    justifyContent:'flex-start'
   },
   buttonsContainer:{
     flex:1,
@@ -80,5 +84,6 @@ const styles = StyleSheet.create({
     width:300,
     alignSelf:'center',
     borderRadius: 0,
+    marginTop:30
   }
 })

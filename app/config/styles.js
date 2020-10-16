@@ -7,5 +7,9 @@ export default{
     color: colors.dark,
     fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
     width: '100%'
+  },
+  titleCard:{
+    fontSize:20,
+    fontWeight:'bold',
   }
 }

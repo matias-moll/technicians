@@ -1,5 +1,5 @@
 import React from 'react'
-import { ImageBackground, StyleSheet} from 'react-native'
+import { ImageBackground, StyleSheet, View} from 'react-native'
 
 import Screen from '../components/Screen'
 import {AppForm, AppFormField, SubmitButton} from '../components/forms'
@@ -16,29 +16,29 @@ export default function Login({navigation}) {
     style={styles.background}
     source={require('../assets/background2.jpg')}>
       <Screen style={styles.container}>
-          <AppText style={styles.title}> Técnicamente </AppText>
-          <AppForm
-            initialValues={{email:'', password:''}}
-            onSubmit={values => navigation.navigate(Routes.HOME)}
-          >
-            <AppFormField 
-              autoCapitalize='none'
-              autoCorrect={false}
-              icon='account'
-              name='user'
-              placeholder='Usuario'
-            />
-            <AppFormField 
-              autoCapitalize='none'
-              autoCorrect={false}
-              icon='lock'
-              name='password'
-              placeholder='Contraseña'
-              secureTextEntry
-              textContentType='password'
-            />
-            <SubmitButton title='Login'/>
-          </AppForm>
+        <AppText style={styles.title}> Técnicamente </AppText>
+        <AppForm
+          initialValues={{email:'', password:''}}
+          onSubmit={values => navigation.navigate(Routes.HOME)}
+        >
+          <AppFormField 
+            autoCapitalize='none'
+            autoCorrect={false}
+            icon='account'
+            name='user'
+            placeholder='Usuario'
+          />
+          <AppFormField 
+            autoCapitalize='none'
+            autoCorrect={false}
+            icon='lock'
+            name='password'
+            placeholder='Contraseña'
+            secureTextEntry
+            textContentType='password'
+          />
+          <SubmitButton title='Login'/>
+        </AppForm>
       </Screen>
     </ImageBackground>
   )
@@ -53,8 +53,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding:30
   },
+
   title: {
-    fontSize:50,
+    fontSize:40,
     color: colors.white,
     fontWeight:'900',
     marginBottom:80,

@@ -15,11 +15,12 @@ export default HomeNavigator = () => {
     <Stack.Navigator  
       screenOptions={{
         headerStyle: {backgroundColor: colors.primary},
-        headerTintColor: colors.black,
+        headerTintColor: colors.white,
+        headerTitleAlign: "center" 
       }} 
     >
       <Stack.Screen name={Routes.LOGIN} component={Login} options={{ headerShown:false }}/>
-      <Stack.Screen name={Routes.HOME} component={Home} options={{ title: 'Orden de Trabajo' }} />
+      <Stack.Screen name={Routes.HOME} component={Home} options={{ title: 'Orden de Trabajo', headerTitleStyle: { alignSelf: 'center' }, }} />
       <Stack.Screen name={Routes.CLIENT_DETAILS} component={ClientDetails} options={{ title: 'Detalle del Cliente' }} />
       <Stack.Screen name={Routes.NEW_WORK_ORDER} component={NewWorkOrder}  options={{ title: 'Nueva Orden de Trabajo' }}/>
       <Stack.Screen name={Routes.FINISH_WORK_ORDER} component={FinishWorkOrder}  options={{ title: 'Terminar Orden de Trabajo' }}/>
