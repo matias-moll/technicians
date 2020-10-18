@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     paddingTop:5,
     paddingBottom: 10,
     padding:20,
+    flex:1
   },
   dataItemRow: {
     flexDirection:'row',

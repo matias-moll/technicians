@@ -4,4 +4,5 @@ export default Object.freeze({
   HOME: 'Home',
   LOGIN: 'Login',
   NEW_WORK_ORDER: "NewWorkOrder",
+  NOTE_DETAIL: 'NoteDetail'
 })
