@@ -1,16 +1,17 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import colors from '../config/colors'
+import AppItemRow from './AppItemRow'
 import Icon from './Icon'
 
 export default function Card({title, iconName=null, children}) {
   return (
     <View style={styles.card}>
-      <View style={styles.dataItemRow}>
+      <AppItemRow>
           <Text style={styles.title}>{title}</Text>  
           <Text style={styles.fill}></Text>
           {iconName && <Icon name={iconName} size={25} backgroundColor={colors.white} iconColor={colors.black}/>}
-      </View>
+      </AppItemRow>
       {children}
     </View>
   )
@@ -29,12 +30,6 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     padding:20,
     flex:1
-  },
-  dataItemRow: {
-    flexDirection:'row',
-    marginBottom:5,
-    marginTop:5,
-    alignItems: 'center'
   },
   title:{
     fontSize:18,

@@ -65,7 +65,6 @@ export default function Home({ navigation }) {
         {finish && 
         <AppButton customStyles={styles.operationalButton} title='Finalizar' onPress={onFinishPressed}/>}
       </View>
-      
     </ScrollView>
   )
 }
@@ -73,7 +72,7 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:'#ecf0f1',
+    backgroundColor: colors.background,
   },
   topContainer:{
     flex:1,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ImageBackground, StyleSheet, View} from 'react-native'
+import { ImageBackground, StyleSheet, SafeAreaView} from 'react-native'
 
 import Screen from '../components/Screen'
 import {AppForm, AppFormField, SubmitButton} from '../components/forms'
@@ -15,7 +15,7 @@ export default function Login({navigation}) {
     <ImageBackground 
     style={styles.background}
     source={require('../assets/background2.jpg')}>
-      <Screen style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <AppText style={styles.title}> Técnicamente </AppText>
         <AppForm
           initialValues={{email:'', password:''}}
@@ -39,7 +39,7 @@ export default function Login({navigation}) {
           />
           <SubmitButton title='Login'/>
         </AppForm>
-      </Screen>
+      </SafeAreaView>
     </ImageBackground>
   )
 }
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container:{
+    flex:1,
     justifyContent: 'flex-end',
     alignItems: 'center',
     padding:30

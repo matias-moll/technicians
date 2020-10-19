@@ -2,14 +2,11 @@ import {Platform} from 'react-native'
 import colors from './colors'
 
 export default{
-  text: {
-    fontSize: 18,
-    color: colors.dark,
+  dataItem: {
+    fontSize:16,
+    flex: 1, 
+    flexWrap: 'wrap',
     fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir',
-    width: '100%'
+    marginLeft: 5
   },
-  titleCard:{
-    fontSize:20,
-    fontWeight:'bold',
-  }
 }

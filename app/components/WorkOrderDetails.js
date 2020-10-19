@@ -7,6 +7,9 @@ import * as Linking from 'expo-linking';
 import useLocation from '../hooks/useLocation'
 import {NavigationContainer, useNavigation} from '@react-navigation/native'
 import Routes from '../navigation/Routes'
+import AppItemRow from './AppItemRow'
+import colors from '../config/colors'
+import appStyles from '../config/appStyles'
 
 export default function WorkOrderDetails({detailsInfo}) {
   const navigation = useNavigation()
@@ -25,18 +28,18 @@ export default function WorkOrderDetails({detailsInfo}) {
   }
   return (
     <Card title='Datos Cliente'>
-      <View style={styles.dataItemRow}>
+      <AppItemRow>
         <ClientIcon name='account'/>
-        <Text style={styles.data}> {detailsInfo.client} ({detailsInfo.clientNumber}) </Text>
-      </View>
-      <View style={styles.dataItemRow}>
+        <Text style={appStyles.dataItem}> {detailsInfo.client} ({detailsInfo.clientNumber}) </Text>
+      </AppItemRow>
+      <AppItemRow>
         <ClientIcon name='home'/>
-        <Text style={styles.data}> {detailsInfo.address} </Text>
-      </View>
-      <View style={styles.dataItemRow}>
+        <Text style={appStyles.dataItem}> {detailsInfo.address} </Text>
+      </AppItemRow>
+      <AppItemRow>
         <ClientIcon name='phone'/>
-        <Text style={styles.data}> {detailsInfo.phone} </Text>
-      </View>
+        <Text style={appStyles.dataItem}> {detailsInfo.phone} </Text>
+      </AppItemRow>
       <View style={styles.buttonsContainer}>
         <AppIconButton title='Detalles' iconName='account-card-details' onPress={onDetailsPressed}/>
         <AppIconButton title='Mapa' iconName='google-maps' onPress={onMapPressed} />
@@ -52,17 +55,5 @@ const styles = StyleSheet.create({
     marginTop:10,
     alignItems: 'center',
     justifyContent:'space-around'
-  },
-  dataItemRow: {
-    flexDirection:'row',
-    marginBottom:5,
-    marginTop:5,
-    alignItems: 'center'
-  },
-  data: {
-    fontSize:16,
-    flex: 1, 
-    flexWrap: 'wrap',
-    marginLeft: 5
   },
 })

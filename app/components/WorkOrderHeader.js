@@ -13,6 +13,7 @@ export default function WorkOrderHeader({headerInfo: headerInfo}) {
 const styles = StyleSheet.create({
   workOrderType: {
     fontSize:22,
-    marginBottom: 5
+    marginBottom: 5,
+    marginTop:5
   },
 })
