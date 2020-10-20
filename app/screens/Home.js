@@ -6,6 +6,7 @@ import Card from '../components/Card';
 import WorkOrderDetails from '../components/WorkOrderDetails';
 import WorkOrderHeader from '../components/WorkOrderHeader';
 import WorkOrderNote from '../components/WorkOrderNote';
+import appStyles from '../config/appStyles';
 import colors from '../config/colors';
 import Routes from '../navigation/Routes';
 
@@ -59,11 +60,11 @@ export default function Home({ navigation }) {
       
       <View style={styles.buttonsContainer}>
         {workOrder.operationalTimes.confirmed && !arrived &&
-        <AppButton customStyles={styles.operationalButton} title='Confirmar' onPress={onConfirmPressed}/>}
+        <AppButton customStyles={appStyles.operationalButton} title='Confirmar' onPress={onConfirmPressed}/>}
         {arrived && !finish &&
-        <AppButton customStyles={styles.operationalButton} title='Llegada a Domicilio' onPress={onArrivedPressed}/>}
+        <AppButton customStyles={appStyles.operationalButton} title='Llegada a Domicilio' onPress={onArrivedPressed}/>}
         {finish && 
-        <AppButton customStyles={styles.operationalButton} title='Finalizar' onPress={onFinishPressed}/>}
+        <AppButton customStyles={appStyles.operationalButton} title='Finalizar' onPress={onFinishPressed}/>}
       </View>
     </ScrollView>
   )
@@ -82,10 +83,4 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'flex-end'
   },
-  operationalButton:{
-    width:300,
-    alignSelf:'center',
-    borderRadius: 0,
-    marginTop:30
-  }
 })
