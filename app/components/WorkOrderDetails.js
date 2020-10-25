@@ -24,7 +24,7 @@ export default function WorkOrderDetails({detailsInfo}) {
   }
 
   const onDetailsPressed = () =>{
-    navigation.navigate(Routes.CLIENT_DETAILS)
+    navigation.navigate(Routes.CLIENT_SERVICES)
   }
   return (
     <Card title='Datos Cliente'>
@@ -41,7 +41,7 @@ export default function WorkOrderDetails({detailsInfo}) {
         <Text style={appStyles.dataItem}> {detailsInfo.phone} </Text>
       </AppItemRow>
       <View style={styles.buttonsContainer}>
-        <AppIconButton title='Detalles' iconName='account-card-details' onPress={onDetailsPressed}/>
+        <AppIconButton title='Servicios' iconName='account-card-details' onPress={onDetailsPressed}/>
         <AppIconButton title='Mapa' iconName='google-maps' onPress={onMapPressed} />
         <AppIconButton title='Llamar' iconName='cellphone' onPress={onCallPressed} />
       </View>

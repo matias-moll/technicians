@@ -36,37 +36,35 @@ const workOrder = {
 }
 
 export default function Home({ navigation }) {
-  const [arrived, setArrived] = React.useState()
-  const [finish, setFinish] = React.useState()
+  const [arrived, setArrived] = React.useState();
+  const [finish, setFinish] = React.useState();
   
   const onConfirmPressed = () => {
-    alert("confirmado")
-    setArrived(new Date())
+    alert("confirmado");
+    setArrived(new Date());
   }
   const onArrivedPressed = () => {
-    alert("Llegada a domicilio")
-    setFinish(new Date())
+    alert("Llegada a domicilio");
+    setFinish(new Date());
   }
   const onFinishPressed = () => {
-    alert("Orden de trabajo finalizada")
-    navigation.navigate(Routes.FINISH_WORK_ORDER)
+    alert("Orden de trabajo finalizada");
+    navigation.navigate(Routes.FINISH_WORK_ORDER);
   }
 
+  const isInConfirmationStatus = () => workOrder.operationalTimes.confirmed && !arrived;
+  const isInArrivalStatus = () => arrived && !finish;
+
+  let action =  isInConfirmationStatus() ? {title:'Confirmar', onPress:onConfirmPressed} :
+                isInArrivalStatus() ? {title:'Llegada a Domicilio', onPress:onArrivedPressed} :
+                {title:'Finalizar', onPress:onFinishPressed};
+
   return (
-    <Screen>   
+    <Screen bottomAction={action}>   
       <View style={styles.topContainer}> 
         <WorkOrderHeader headerInfo={workOrder.headerInfo} />
         <WorkOrderDetails detailsInfo={workOrder.detailsInfo} />
         <WorkOrderNote note={workOrder.detailsInfo.note} />
-      </View>
-      
-      <View style={styles.buttonsContainer}>
-        {workOrder.operationalTimes.confirmed && !arrived &&
-        <AppButton customStyles={appStyles.operationalButton} title='Confirmar' onPress={onConfirmPressed}/>}
-        {arrived && !finish &&
-        <AppButton customStyles={appStyles.operationalButton} title='Llegada a Domicilio' onPress={onArrivedPressed}/>}
-        {finish && 
-        <AppButton customStyles={appStyles.operationalButton} title='Finalizar' onPress={onFinishPressed}/>}
       </View>
     </Screen>
   )
@@ -80,7 +78,5 @@ const styles = StyleSheet.create({
   topContainer:{
     justifyContent:'flex-start'
   },
-  buttonsContainer:{
-    justifyContent:'flex-end'
-  },
+
 })
