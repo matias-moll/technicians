@@ -7,7 +7,7 @@ import colors from '../config/colors'
 export default function Screen({children, style}) {
   return (
     <SafeAreaView style={[styles.screen, style]}>
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container} contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}>
         {children}
       </ScrollView>
     </SafeAreaView>
@@ -16,7 +16,8 @@ export default function Screen({children, style}) {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1
+    flex: 1,
+    
   },
   container:{
     flex:1,

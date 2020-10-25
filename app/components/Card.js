@@ -20,13 +20,13 @@ export default function Card({title, iconName=null, children}) {
 const styles = StyleSheet.create({
   card:{
     margin:8,
-    marginTop:15,
+    marginTop:10,
     marginBottom:0,
     elevation: 2,
     borderLeftColor:'#27AE60',
     borderLeftWidth:3,
     backgroundColor:'white',
-    paddingTop:5,
+    paddingTop:3,
     paddingBottom: 10,
     padding:20,
     flex:1
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   title:{
     fontSize:18,
     fontWeight:'bold',
-    paddingBottom: 5
+    paddingBottom: 3
   },
   fill: {
     flex: 1, 

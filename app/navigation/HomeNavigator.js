@@ -15,7 +15,7 @@ export default HomeNavigator = () => {
   return (
     <Stack.Navigator  
       screenOptions={{
-        headerStyle: {backgroundColor: colors.primary},
+        headerStyle: {backgroundColor: colors.primary, height:80},
         headerTintColor: colors.white,
         headerTitleAlign: "center" 
       }} 

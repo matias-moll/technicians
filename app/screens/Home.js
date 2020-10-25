@@ -1,8 +1,10 @@
 import React from 'react'
 import {View, Text, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import { Divider } from 'react-native-elements';
+
 import AppButton from '../components/AppButton';
 import Card from '../components/Card';
+import Screen from '../components/Screen';
 import WorkOrderDetails from '../components/WorkOrderDetails';
 import WorkOrderHeader from '../components/WorkOrderHeader';
 import WorkOrderNote from '../components/WorkOrderNote';
@@ -51,7 +53,7 @@ export default function Home({ navigation }) {
   }
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}>
+    <Screen>   
       <View style={styles.topContainer}> 
         <WorkOrderHeader headerInfo={workOrder.headerInfo} />
         <WorkOrderDetails detailsInfo={workOrder.detailsInfo} />
@@ -66,7 +68,7 @@ export default function Home({ navigation }) {
         {finish && 
         <AppButton customStyles={appStyles.operationalButton} title='Finalizar' onPress={onFinishPressed}/>}
       </View>
-    </ScrollView>
+    </Screen>
   )
 }
 
@@ -76,11 +78,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   topContainer:{
-    flex:1,
     justifyContent:'flex-start'
   },
   buttonsContainer:{
-    flex:1,
     justifyContent:'flex-end'
   },
 })
