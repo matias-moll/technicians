@@ -30,7 +30,8 @@
     "react-native-screens": "~2.10.1",
     "react-native-signature-canvas": "^3.2.0",
     "react-native-web": "~0.13.12",
-    "yup": "^0.28.5"
+    "yup": "^0.28.5",
+    "@react-native-community/netinfo": "5.9.6"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
