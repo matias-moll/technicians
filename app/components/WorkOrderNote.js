@@ -11,12 +11,15 @@ export default function WorkOrderNote({note}) {
   const navigation = useNavigation()
 
   const onFullNotePressed = () => {
-    navigation.navigate(Routes.NOTE_DETAIL, {fullNote: note.full})
+    navigation.navigate(Routes.NOTE_DETAIL, {fullNote: note})
   }
+  
+  const summary = note.substring(0, 250);
+
   return (
     <Card title='Observación'>
       <View style={styles.dataItemRow}>
-        <Text style={styles.dataSmall}>{note.summary} ... <Text onPress={onFullNotePressed} style={styles.linkFull}> ver mas </Text> </Text>
+        <Text style={styles.dataSmall}>{summary} ... <Text onPress={onFullNotePressed} style={styles.linkFull}> ver mas </Text> </Text>
       </View>
     </Card>
   )

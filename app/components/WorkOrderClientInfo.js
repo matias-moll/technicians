@@ -11,7 +11,7 @@ import AppItemRow from './AppItemRow'
 import colors from '../config/colors'
 import appStyles from '../config/appStyles'
 
-export default function WorkOrderDetails({detailsInfo}) {
+export default function WorkOrderClientInfo({detailsInfo}) {
   const navigation = useNavigation()
   const location = useLocation();
 
