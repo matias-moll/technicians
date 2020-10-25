@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   text: {
     color: colors.white,
     width: 'auto',
-    paddingTop: 10,
+    paddingTop: 20,
     fontSize:20,
     fontWeight: 'bold'
   }
